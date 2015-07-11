@@ -1,12 +1,14 @@
 package app;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-public class Main extends Application {
+public class Main extends Application implements EventHandler<ActionEvent> {
     private final String APP_TITLE = "Tomat";
     private final double SCENE_WIDTH = 200;
     private final double SCENE_HEIGHT = 100;
@@ -22,10 +24,21 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle(APP_TITLE);
         okButton = new Button(OK_BUTTON_TITLE);
+        okButton.setOnAction(this);
+
         layout = new StackPane();
         layout.getChildren().add(okButton);
+
         scene = new Scene(layout, SCENE_WIDTH, SCENE_HEIGHT);
+
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+
+    @Override
+    public void handle(ActionEvent event) {
+        if (event.getSource() == okButton) {
+            System.out.println("Ok clicked!");
+        }
     }
 }
