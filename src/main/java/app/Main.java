@@ -24,12 +24,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle(APP_TITLE);
         okButton = new Button(OK_BUTTON_TITLE);
-        okButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("clicked " + okButton.getText());
-            }
-        });
+        okButton.setOnAction(event -> System.out.println("lambda click " + okButton.getText()));
 
         layout = new StackPane();
         layout.getChildren().add(okButton);
