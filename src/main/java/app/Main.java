@@ -1,10 +1,9 @@
 package app;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -13,6 +12,7 @@ public class Main extends Application {
     private final double SCENE_WIDTH = 200;
     private final double SCENE_HEIGHT = 100;
     private final String OK_BUTTON_TITLE = "OK";
+    private final String APP_ICON = "images/icon.png";
     private Button okButton;
     private StackPane layout;
     private Scene scene;
@@ -32,6 +32,7 @@ public class Main extends Application {
         scene = new Scene(layout, SCENE_WIDTH, SCENE_HEIGHT);
 
         primaryStage.setScene(scene);
+        primaryStage.getIcons().add(new Image(APP_ICON));
         primaryStage.show();
     }
 }
